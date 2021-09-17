@@ -4,7 +4,7 @@
       <div slot="header">
         登 录
       </div>
-      <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="70px" class="form">
+      <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="form">
         <el-form-item label="用户名：" prop="username">
           <el-input v-model="ruleForm.username"></el-input>
         </el-form-item>
