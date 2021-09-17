@@ -4,15 +4,15 @@
       <div slot="header">
         注 册
       </div>
-      <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="form">
-        <el-form-item label="用户名：" prop="username">
-          <el-input v-model="ruleForm.username"></el-input>
+      <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class="form">
+        <el-form-item prop="username">
+          <el-input v-model="ruleForm.username" placeholder="请输入用户名" prefix-icon="el-icon-user-solid"></el-input>
         </el-form-item>
-        <el-form-item label="密 码：" prop="password">
-          <el-input type="password" v-model="ruleForm.password"></el-input>
+        <el-form-item prop="password">
+          <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码" prefix-icon="el-icon-s-cooperation" show-password></el-input>
         </el-form-item>
-        <el-form-item label="确认密码：" prop="checkPassword">
-          <el-input type="checkPassword" v-model="ruleForm.checkPassword"></el-input>
+        <el-form-item prop="checkPassword">
+          <el-input type="checkPassword" v-model="ruleForm.checkPassword" placeholder="请再次输入密码" prefix-icon="el-icon-s-tools" show-password></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="register()">注册</el-button>
@@ -96,12 +96,14 @@
               type: 'success'
             });
           } else {
-            console.log('error submit!!');
+            this.$message({
+              message: '注册失败',
+              type: 'error'
+            });
           }
         });
       },
       goToLogin() {
-        // console.log()
         this.$router.push('/login');
       }
     },

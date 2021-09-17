@@ -4,12 +4,15 @@
       <div slot="header">
         登 录
       </div>
-      <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="form">
-        <el-form-item label="用户名：" prop="username">
-          <el-input v-model="ruleForm.username"></el-input>
+      <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class="form">
+        <el-form-item prop="username">
+          <el-input v-model="ruleForm.username" placeholder="请输入用户名" class="inputDeep" prefix-icon="el-icon-user-solid">
+          </el-input>
+          <!-- <input v-model="ruleForm.username" placeholder="请输入用户名" /> -->
         </el-form-item>
-        <el-form-item label="密 码：" prop="password">
-          <el-input type="password" v-model="ruleForm.password"></el-input>
+        <el-form-item prop="password">
+          <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码" prefix-icon="el-icon-s-cooperation"
+            show-password></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="goToRegister()">去注册</el-button>
@@ -39,8 +42,8 @@
         if (!value) {
           return callback(new Error('请输入密码'));
         } else {
-          if (value.length < 6) {
-            return callback(new Error('密码至少 6 位'));
+          if (!this.passwordRules(value)) {
+            return callback(new Error('用户名或密码错误'));
           }
           callback();
         }
@@ -74,17 +77,22 @@
               type: 'success'
             });
           } else {
-            console.log('error submit!!');
-            return false;
+            this.$message({
+              message: '登录失败',
+              type: 'error'
+            });
           }
         });
       },
       usernameRules(value) {
         if (value == 'admin') {
-          this.$message({
-            message: '用户名不存在',
-            type: 'error'
-          });
+          return true;
+        } else {
+          return false;
+        }
+      },
+      passwordRules(value) {
+        if (value == '123456') {
           return true;
         } else {
           return false;
