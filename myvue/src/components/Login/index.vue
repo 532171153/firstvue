@@ -114,16 +114,6 @@
 
 </script>
 
-<style scoped>
-  .form {
-    width: 300px;
-    margin: auto;
-  }
-
-  .card {
-    width: 400px;
-    margin: auto;
-    margin-top: 200px;
-  }
-
+<style lang="less" scoped>
+  @import "./login.less";
 </style>

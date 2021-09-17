@@ -9,10 +9,12 @@
           <el-input v-model="ruleForm.username" placeholder="请输入用户名" prefix-icon="el-icon-user-solid"></el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码" prefix-icon="el-icon-s-cooperation" show-password></el-input>
+          <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码" prefix-icon="el-icon-s-cooperation"
+            show-password></el-input>
         </el-form-item>
         <el-form-item prop="checkPassword">
-          <el-input type="checkPassword" v-model="ruleForm.checkPassword" placeholder="请再次输入密码" prefix-icon="el-icon-s-tools" show-password></el-input>
+          <el-input type="checkPassword" v-model="ruleForm.checkPassword" placeholder="请再次输入密码"
+            prefix-icon="el-icon-s-tools" show-password></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="register()">注册</el-button>
@@ -25,7 +27,7 @@
 
 <script>
   export default {
-    name: "Register",
+    name: 'Register',
     components: {},
     data() {
       var validateUser = (rule, value, callback) => {
@@ -122,16 +124,7 @@
 
 </script>
 
-<style scoped>
-  .form {
-    width: 300px;
-    margin: auto;
-  }
-
-  .card {
-    width: 400px;
-    margin: auto;
-    margin-top: 200px;
-  }
+<style lang="less" scoped>
+  @import "./register.less";
 
 </style>
