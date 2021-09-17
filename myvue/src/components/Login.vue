@@ -115,6 +115,7 @@
   .card {
     width: 400px;
     margin: auto;
+    margin-top: 200px;
   }
 
 </style>
