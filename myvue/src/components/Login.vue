@@ -29,7 +29,6 @@
           return callback(new Error('请输入用户名'));
         } else {
           if (this.usernameRules(value)) {
-            // debugger
             return callback(new Error('用户名不存在'));
           }
           callback();
