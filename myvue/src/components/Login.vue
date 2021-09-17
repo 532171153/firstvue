@@ -12,7 +12,8 @@
           <el-input type="password" v-model="ruleForm.password"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+          <el-button type="primary" @click="goToRegister()">去注册</el-button>
+          <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -62,6 +63,9 @@
       };
     },
     methods: {
+      goToRegister() {
+        this.$router.push('/register');
+      },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
