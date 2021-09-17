@@ -32,7 +32,7 @@ export const Throttle = (func, interval = 500) => {
       clearTimeout(timer);
       timer = setTimeout(() => {
         last = now;
-        fn.apply(this, args);
+        func.apply(this, args);
       }, interval);
     } else {
       last = now;
